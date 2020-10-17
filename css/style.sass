@@ -6,6 +6,7 @@
 .wrapper_fullHD
   width: 1920px
   max-width: 100%
+  margin: 0 auto
 
 .wrapper
   max-width: 100%
@@ -18,6 +19,10 @@
   text-decoration: none
   @include font($textBlack, $regular, 600, $fontSize, 40px)
   @include transition()
+
+input, input:hover, input:focus, input:active
+  outline: none
+  border: none
 
 .btn
   display: inline-block
@@ -55,33 +60,17 @@
   span
     color: $darkGreen
 
+.badge
+  background: $mint
+  @include border-radius(10px)
+  padding: 20px
+
 /* HEADER */
 .header
   display: flex
   align-items: center
   justify-content: space-between
   margin: 10px 0
-
-  .logos
-    display: flex
-
-    .logo
-      padding: 15px 25px
-      @include border-radius(10px)
-      display: flex
-      justify-content: center
-      align-items: center
-
-      img
-        max-width: 100%
-        max-height: 100%
-
-      &_green
-        background: $green
-        margin-right: 5px
-
-      &_silver
-        background: $silver
 
   .anchors
     display: flex
@@ -106,6 +95,28 @@
         &:hover
           background: $darkSilver
           @include transition()
+
+.header, .footer_top
+  .logos
+    display: flex
+
+    .logo
+      padding: 15px 25px
+      @include border-radius(10px)
+      display: flex
+      justify-content: center
+      align-items: center
+
+      img
+        max-width: 100%
+        max-height: 100%
+
+      &_green
+        background: $green
+        margin-right: 5px
+
+      &_silver
+        background: $silver
 
   .contacts
     display: flex
@@ -146,6 +157,7 @@
       opacity: 0.4
       margin-top: 0
 
+/* PAGE */
 .s_firstScreen
   .wrapper_fullHD
     overflow: hidden
@@ -286,7 +298,7 @@
     margin-bottom: 70px
 
   &__slider
-    .slick-track
+    .slick-list
       margin: 0 -10px
 
     .slick-slide
@@ -335,6 +347,277 @@
 
       span
         @include font($darkGreen, $regular, 600, 30px, 1.3)
+
+.slick-slide
+  &:hover, &:focus, &:active, div, a
+    outline: none
+
+.slick-arrow
+  border: none
+  background: none
+  @include border-radius()
+  display: flex
+  padding: 0
+  position: absolute
+  top: 50%
+  @include transform(translateY(-50%))
+  z-index: 1
+  @include transition()
+
+  &:focus, &:active
+    outline: none
+
+  &.slick-prev
+    left: -80px
+
+    &:hover
+      @include transform(translateY(-50%) scale(1.1))
+      @include transition()
+
+  &.slick-next
+    right: -80px
+    @include transform(translateY(-50%) rotate(180deg))
+
+    &:hover
+      @include transition()
+      @include transform(translateY(-50%) scale(1.1) rotate(180deg))
+
+.s_feedback
+  margin-bottom: 70px
+
+  .wrapper_fullHD
+    background: url("../images/bg.png") center center no-repeat
+    background-size: cover
+
+.feedback
+  .innerTitle
+    padding-top: 70px
+    margin-bottom: 30px
+
+  &__form
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+    margin: 0 0 20px
+    padding: 0
+    list-style: none
+
+    input
+      &[type='text'], &[type='tel'], &[type='email']
+        width: 100%
+        @include border-radius(10px)
+        padding: 30px 25px 15px
+        box-sizing: border-box
+        @include font($textBlack, $regular, normal, 20px)
+
+    li
+      margin-bottom: 10px
+      width: 49%
+      position: relative
+
+      &.feedback__form_full
+        width: 100%
+
+      label
+        position: absolute
+        padding-left: 25px
+        top: 10px
+        opacity: 0.7
+        @include font($textBlack, $regular, normal, 13px)
+
+  &__checkboxes
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    margin-left: 3px
+    padding-bottom: 70px
+
+    label
+      margin-bottom: 10px
+
+      &:nth-child(2)
+        margin-bottom: 30px
+
+.wrap-checkbox
+  background: url(../images/unchecked.svg) no-repeat 0 0
+  display: inline-block
+  height: 20px
+  width: 20px
+  line-height: 23px
+  margin-right: 10px
+
+  &.active
+    background: url(../images/checked.svg) no-repeat 0 0
+
+.s_histories
+  .wrapper_fullHD
+    background: url("../images/history-bg.jpg") center center no-repeat
+    background-size: cover
+
+    .wrapper
+      padding: 70px 0
+
+      .badge
+        background: $white
+
+.histories
+  &__title
+    display: flex
+    align-items: center
+    white-space: nowrap
+    margin-bottom: 70px
+
+    hr
+      background: #EDEDED
+      border: none
+      height: 1px
+      width: 100%
+      margin: 0 0 0 30px
+
+  &__item
+    display: flex
+    margin-bottom: 70px
+
+    &:nth-child(even)
+      flex-direction: row-reverse
+
+      .histories__item__img
+        padding: 0 0 0 50px
+
+    &__img
+      width: 45%
+      padding-right: 50px
+
+      img
+        @include object-fit()
+        @include border-radius(10px)
+        height: 100%
+        width: 100%
+
+    &__content
+      width: 55%
+
+      &__quote
+        display: flex
+        align-items: flex-start
+        margin-bottom: 40px
+
+        &__photo
+          width: 100px
+          height: 100px
+          @include border-radius()
+
+        .quote
+          margin: 0 20px 0 40px
+
+        h3
+          margin: 0 0 10px 0
+          @include font($textBlack, $regular, normal, 30px, 36px)
+
+        p
+          opacity: 0.7
+          @include font($textBlack, $regular, normal, 20px, 1.4)
+
+      &__question
+        display: flex
+        align-items: center
+        margin-bottom: 30px
+
+        &__icon
+          background: $darkGreen
+          display: flex
+          justify-content: center
+          align-items: center
+          width: 50px
+          height: 50px
+          @include border-radius()
+          margin-right: 25px
+          @include font($white, $regular, 600, 20px, 26px)
+          flex-shrink: 0
+
+        p
+          @include font($textBlack, $regular, 600, 16px, 26px)
+          margin: 0
+
+      &__answer
+        p
+          @include font($textBlack, $regular, normal, 16px, 26px)
+          margin: 0 0 20px
+
+          &:last-child
+            margin: 0
+
+        ul
+          @include font($darkGreen, $regular, 600, 16px, 26px)
+          padding-left: 20px
+
+          span
+            color: $textBlack
+
+.s_histories
+  .wrapper_fullHD
+    .histories__item
+      flex-direction: row-reverse
+
+      &:last-child
+        margin-bottom: 0
+
+      &__img
+        padding: 0 0 0 50px
+
+      &:nth-child(even)
+        flex-direction: row
+
+        .histories__item__img
+          padding: 0 50px 0 0
+
+.s_bottomSlider
+  margin-bottom: 50px
+
+  .wrapper_fullHD
+    overflow: hidden
+
+.bottomSlider
+  .slick-list
+    overflow: unset
+
+    img
+      margin: 0
+      width: 100%
+      height: 100%
+      @include object-fit()
+
+footer
+  .footer_top
+    display: flex
+    justify-content: space-between
+    margin-bottom: 40px
+
+  hr
+    margin: 0
+    width: 100%
+    height: 1px
+    border: none
+    opacity: 0.5
+    background: #C4C4C4
+
+  .footer_bottom
+    padding: 20px 0
+    display: flex
+
+    p
+      margin: 0 30px 0 0
+      @include font($textBlack, $regular, normal, 18px)
+
+    a
+      margin: 0 30px 0 0
+      @include font($textBlack, $regular, normal, 18px)
+      opacity: 0.7
+      text-decoration: none
+      display: inline-block
+
+      &:hover
+        text-decoration: underline
 
 @import "hamburger"
 
