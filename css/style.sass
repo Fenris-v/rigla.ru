@@ -10,8 +10,10 @@
 
 .wrapper
   max-width: 100%
-  width: 1200px
+  width: 1230px
   margin: 0 auto
+  padding: 0 15px
+  @include box-sizing()
 
 .anchor, .btn
   @include border-radius(10px)
@@ -169,6 +171,7 @@ input, input:hover, input:focus, input:active
   .innerTitle
     margin-bottom: 50px
     padding-top: 100px
+    max-width: 400px
 
   p
     @include font($textBlack, $regular, normal, 24px, 1.4)
@@ -229,6 +232,7 @@ input, input:hover, input:focus, input:active
       align-items: center
       margin-right: 50px
       @include transition()
+      flex-shrink: 0
 
   &__place
     display: flex
@@ -322,6 +326,7 @@ input, input:hover, input:focus, input:active
       @include border-radius()
       align-items: center
       margin-right: 30px
+      flex-shrink: 0
 
       img
         max-width: 75px
@@ -455,7 +460,7 @@ input, input:hover, input:focus, input:active
     background-size: cover
 
     .wrapper
-      padding: 70px 0
+      padding: 70px 15px
 
       .badge
         background: $white
