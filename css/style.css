@@ -495,10 +495,7 @@ input, input:hover, input:focus, input:active {
       max-width: 100%;
       max-height: 100%; }
     .header .logos .logo_green, .footer_top .logos .logo_green {
-      background: #60A82D;
       margin-right: 5px; }
-    .header .logos .logo_silver, .footer_top .logos .logo_silver {
-      background: #EAEFF2; }
 .header .contacts, .footer_top .contacts {
   display: flex;
   align-items: center; }
@@ -859,6 +856,9 @@ input, input:hover, input:focus, input:active {
       font-family: Myrida, sans-serif;
       color: #000000;
       line-height: 1; }
+      .feedback__form li label span {
+        color: red;
+        font-size: 18px; }
 .feedback__checkboxes {
   display: flex;
   flex-direction: column;

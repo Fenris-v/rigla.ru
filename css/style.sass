@@ -114,11 +114,7 @@ input, input:hover, input:focus, input:active
         max-height: 100%
 
       &_green
-        background: $green
         margin-right: 5px
-
-      &_silver
-        background: $silver
 
   .contacts
     display: flex
@@ -429,6 +425,10 @@ input, input:hover, input:focus, input:active
         top: 10px
         opacity: 0.7
         @include font($textBlack, $regular, normal, 13px)
+
+        span
+          color: red
+          font-size: 18px
 
   &__checkboxes
     display: flex
